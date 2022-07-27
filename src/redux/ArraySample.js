@@ -1,16 +1,16 @@
 import {createSlice} from '@reduxjs/toolkit';
 
-const push = createSlice({
+const arrSample = createSlice({
   name: 'pushingArr',
   initialState: {
     arr: [1, 2, 4, 4, 5, 6, 4, 4, 3, 3],
     origin: [1, 2, 4, 4, 5, 6, 4, 4, 3, 3],
   },
   reducers: {
-    pushArr: (state, action) => {
+    remove: (state, action) => {
       state.arr = action.payload;
     },
-    popArr: (state, action) => {
+    replace: (state, action) => {
       state.arr = action.payload;
     },
     originArr: state => {
@@ -19,6 +19,6 @@ const push = createSlice({
   },
 });
 
-export const {pushArr, popArr, originArr} = push.actions;
+export const {remove, replace, originArr} = arrSample.actions;
 
-export default push.reducer;
+export default arrSample.reducer;

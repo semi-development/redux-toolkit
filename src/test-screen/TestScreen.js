@@ -3,12 +3,12 @@ import React from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {decrement, increment} from '../redux/CounterRed';
 import {jumpBy100, downBy100} from '../redux/JumpRed';
-import {pushArr, popArr, originArr} from '../redux/ArrayPush';
+import {remove, replace, originArr} from '../redux/ArraySample';
 
 export function TestScreen() {
   const {count} = useSelector(state => state.counterSlice);
   const {value} = useSelector(state => state.jump);
-  const {arr} = useSelector(state => state.push);
+  const {arr} = useSelector(state => state.arrSample);
   const dispatch = useDispatch();
   let remove4 = arr.filter(data => data != 4 && data);
   let replace4 = arr.map(data => (data == 4 ? 3 : data));
@@ -48,12 +48,12 @@ export function TestScreen() {
       </View>
       <TouchableOpacity
         style={styles.btn}
-        onPress={() => dispatch(pushArr(remove4))}>
+        onPress={() => dispatch(remove(remove4))}>
         <Text>delete 4</Text>
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.btn}
-        onPress={() => dispatch(popArr(replace4))}>
+        onPress={() => dispatch(replace(replace4))}>
         <Text>replace 4 with 3</Text>
       </TouchableOpacity>
       <TouchableOpacity
