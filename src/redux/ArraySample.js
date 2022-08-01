@@ -7,11 +7,13 @@ const arrSample = createSlice({
     origin: [1, 2, 4, 4, 5, 6, 4, 4, 3, 3],
   },
   reducers: {
-    remove: (state, action) => {
-      state.arr = action.payload;
+    remove: state => {
+      let remove4 = state.arr.filter(data => data != 4 && data);
+      state.arr = remove4;
     },
-    replace: (state, action) => {
-      state.arr = action.payload;
+    replace: state => {
+      let replace4 = state.arr.map(data => (data == 4 ? 3 : data));
+      state.arr = replace4;
     },
     originArr: state => {
       state.arr = state.origin;

@@ -10,8 +10,6 @@ export function TestScreen() {
   const {value} = useSelector(state => state.jump);
   const {arr} = useSelector(state => state.arrSample);
   const dispatch = useDispatch();
-  let remove4 = arr.filter(data => data != 4 && data);
-  let replace4 = arr.map(data => (data == 4 ? 3 : data));
 
   return (
     <View style={{justifyContent: 'center', alignItems: 'center', flex: 1}}>
@@ -46,14 +44,10 @@ export function TestScreen() {
         })}
         <Text style={{fontSize: 18}}> ]</Text>
       </View>
-      <TouchableOpacity
-        style={styles.btn}
-        onPress={() => dispatch(remove(remove4))}>
+      <TouchableOpacity style={styles.btn} onPress={() => dispatch(remove())}>
         <Text>delete 4</Text>
       </TouchableOpacity>
-      <TouchableOpacity
-        style={styles.btn}
-        onPress={() => dispatch(replace(replace4))}>
+      <TouchableOpacity style={styles.btn} onPress={() => dispatch(replace())}>
         <Text>replace 4 with 3</Text>
       </TouchableOpacity>
       <TouchableOpacity
