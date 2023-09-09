@@ -4,6 +4,11 @@
 - open terminal (mac)/cmd (windows)
 - git clone 'url'
 - cd redux-toolkit
-- npm install
-- npm run start
-- npm run android
+- yarn install
+- yarn start
+- yarn android
+--- for ios ---
+- cd ios
+- pod install
+- cd ..
+- yarn ios
